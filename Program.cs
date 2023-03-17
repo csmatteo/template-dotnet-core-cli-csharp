@@ -29,16 +29,16 @@ namespace dotnetcore
 
             String secretValue = Console.ReadLine();
             client.SetSecret(secretName, secretValue);
-            Console.Write("SetSecret:");
-            Console.Write("\tKey: " + secretName);
-            Console.Write("\tValue: " + secretValue);
+            Console.WriteLine("SetSecret:");
+            Console.WriteLine("\tKey: " + secretName);
+            Console.WriteLine("\tValue: " + secretValue);
 
             Console.WriteLine("GetSecret: " +secret.Value);
 
             client.StartDeleteSecret(secretName);
             Console.WriteLine("StartDeleteSecret: " + keyVaultName);
 
-            Console.WriteLine("GetSecret: " +secret.Value);
+            Console.WriteLine("GetSecret: " +secret.Value);//Secret can still be seen even though deleted due to propagation
         }
     }
 }
